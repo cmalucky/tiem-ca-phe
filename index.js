@@ -16,8 +16,7 @@ bot.variables({
  host: "",
  win: "",
  mid: "",
- setup: "",
-category: "",
+ TicketOpen: "",
 
 })
 
