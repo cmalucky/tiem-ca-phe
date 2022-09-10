@@ -1,44 +1,144 @@
 module.exports = [{
-    name: "ticketpanel",
-    code: `
-    $title[1;Ticket System]
-    $description[1;Click in the button for open ticket.]
-    $color[1;BLUE]
-    $addButton[1;Open;2;support]
-    $onlyIF[$getServerVar[setup]>false;❌ Setup not concluded.]
-    `
+name: 'ticket',
+
+code: `
+$title[🎟️ Créer un ticket]
+
+$description[Cliquez sur le bouton pour créé un ticket !]
+
+$footer[📩]
+
+$color[00ff00]
+
+$addbutton[1;ticket;primary;open;no;📩]
+
+$addTimestamp
+
+$setUserVar[TicketName;$authorID]
+
+
+
 },{
-    name: "support",
-    type: "interaction",
+
+
+  name: "open",
+type: "interaction",
     prototype: "button",
-    code: `
-    $editChannel[$channelID[creating-$authorID];{"name":"support-$authorID"}]
-    $wait[1s]
-    $setChannelVar[user;$authorID;$channelID[creating-$authorID]]
-    $setChannelVar[id;$channelID[creating-$authorID];$channelID[creating-$authorID]]
-    $interactionReply[✅ | Ticket opened sucessfull, <@$authorID>!;;;;;yes]
-    $wait[1s]
-    $newTicket[creating-$authorID;{
-        "embeds": "{newEmbed:{title:✉ | Ticket}{description:Wait for receive support.}{color:BLUE}}",
-        "components": "{actionRow:{button:🔒 Close:danger:cmdclose:no}}"
-        };$getServerVar[category]]
-        $onlyIF[$channelExists[$channelID[support-$authorID]]<true;{
-    "content": "You already have an open ticket.",
-    "ephemeral": "true",
-"options":{"interaction":true}
-  }]    
+
+  code: `
+ $setUserVar[TicketOpen;yes]
+
+$usechannel[$get[id]]
+
+<@$authorID> | 1009537720038719540
+
+$title[🎟️ Ticket]
+
+$description[Veuillez attendre qu'un membre du staff prenne en charge votre demande]
+
+$color[BLUE]
+
+$addbutton[1;fermer;danger;close;no;⛔]
+
+$modifyChannelPerms[$authorID;$get[id];+viewchannel] 
+
+$sendDm[Vous avez ouvert un ticket ici <#$get[id]>;$authorID;no]
+
+$let[id;$createChannel[$guildID;Ticket-$username;text;yes;1010946481693397032]]
+
+$onlyIf[$getUserVar[ticketOpen]]==yes;$sendDm[<:Ni_Warn:1006326615904628758> | Vous avez déjà ouvert un ticket !;$authorID;no]]
+  `
+
+},{
+
+
+
+
+
+name: "close",
+type: "interaction",
+    prototype: "button",
+    code: `$title[1;DeleteTicket]
+
+$usechannel[$channelID]
+
+$description[1;<@$authorID> voulez vous vraiment delete le ticket ?]
+
+$color[1;d21010]
+
+$modifyChannelPerms[$getUserVar[TicketName];$channelID;-viewchannel]
+$setUserVar[TicketOpen;no]
+
+bot.command({
+
+name: 'ticket',
+
+code: `
+$title[🎟️ Créer un ticket]
+
+$description[Cliquez sur le bouton pour créé un ticket !]
+
+$footer[📩]
+
+$color[00ff00]
+
+$addbutton[1;ticket;primary;open;no;📩]
+
+$addTimestamp
+
+$setUserVar[TicketName;$authorID]
+
 `
+
 },{
-    name: "cmdclose",
-    type: "interaction",
+
+
+  name: "open",
+type: "interaction",
     prototype: "button",
     code: `
-    $closeTicket[]
-    $wait[5s]
-    $channelSendMessage[$getServerVar[channel];**$channelName[$getChannelVar[id]] - <@$getChannelVar[user]>** {attachment::./transcripts/$getChannelVar[user].txt}]
-    $interactionEdit[✅  Success, this ticket in a fell seconds is closed.]
-    $wait[3s]
-    $writeFile[./transcripts/$getChannelVar[user].txt;$getChannelVar[msg]]
-    $interactionReply[🌐  Generating transcript, wait...]
-    `
+ $setUserVar[TicketOpen;yes]
+
+$usechannel[$get[id]]
+
+<@$authorID> | 1009537720038719540
+
+$title[🎟️ Ticket]
+
+$description[Veuillez attendre qu'un membre du staff prenne en charge votre demande]
+
+$color[BLUE]
+
+$addbutton[1;fermer;danger;close;no;⛔]
+
+$modifyChannelPerms[$authorID;$get[id];+viewchannel] 
+
+$sendDm[Vous avez ouvert un ticket ici <#$get[id]>;$authorID;no]
+
+$let[id;$createChannel[$guildID;Ticket-$username;text;yes;1010946481693397032]]
+
+$onlyIf[$getUserVar[ticketOpen]]==yes;$sendDm[<:Ni_Warn:1006326615904628758> | Vous avez déjà ouvert un ticket !;$authorID;no]]
+  `
+
+},{
+
+
+
+
+name: "close",
+
+type: "interaction",
+    prototype: "button",
+code: `$title[1;DeleteTicket]
+
+$usechannel[$channelID]
+
+$description[1;<@$authorID> voulez vous vraiment delete le ticket ?]
+
+$color[1;d21010]
+
+$modifyChannelPerms[$getUserVar[TicketName];$channelID;-viewchannel]
+$setUserVar[TicketOpen;no]
+`
+
 }]
