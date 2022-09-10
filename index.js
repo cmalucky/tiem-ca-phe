@@ -5,21 +5,18 @@ const bot = new aoijs.Bot({
    intents: "all"
  })
 
- 
-dash.start()
- 
 bot.onMemberUpdate()
 
 bot.variables({
-  captchacode: "",
-  prize: "",
-  date: "",
-  cid: "",
-  time: "",
-  host: "",
-  win: "",
-  mid: "",
- })
+ captchacode: "",
+ prize: "",
+ date: "",
+ cid: "",
+ time: "",
+ host: "",
+ win: "",
+ mid: "",
+})
 
 //Events
 bot.onMessage()
@@ -38,7 +35,7 @@ bot.interactionCommand({
 {button:Làm mới:1:verify:no:<a:reload:1014121698511044618>}{
 {button:Nhập mã:success:c1:no:<a:zz_pencil:1015628425802825800>}};;;yes]
 `
-})                                  
+})                 
 
 //Command Example (ping)
 bot.command({
@@ -51,6 +48,7 @@ bot.readyCommand({
     channel: "",
     code: `$log[Ready on $userTag[$clientID]]`
 })
+ 
 bot.status({
   text: "Tiệm cà phê",
   type: "WATCHING",
