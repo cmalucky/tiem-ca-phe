@@ -34,7 +34,7 @@ $usechannel[$get[id]]
 
 $title[🎟️ Ticket]
 
-$description[Veuillez attendre qu'un membre du staff prenne en charge votre demande]
+$description[Veuillez attendre qu un membre du staff prenne en charge votre demande]
 
 $color[BLUE]
 
