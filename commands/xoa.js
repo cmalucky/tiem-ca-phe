@@ -7,6 +7,7 @@ module.exports ={
  $onlyIf[$message[1]>=0;Không Thể Xoá 0 Tin Nhắn]
  $onlyIf[$message[1]<=100;Không Thể Xoá Hơn 100 Tin Nhắn]
  $onlyIf[$isNumber[$message[1]]==true;Hãy Điền Một Con Số Từ 1 Đến 100]
- 
+  $onlyPerms[managemessages;<a:XGIF:1015223551957143583>  Bạn không có quyền \`MANAGE MESSAGES\` để sử dụng lệnh này!]
+ $onlyBotPerms[managemessages;<a:XGIF:1015223551957143583>  Bạn không có quyền \`MANAGE MESSAGES\` để sử dụng lệnh này!]
  $suppressErrors`
 }
