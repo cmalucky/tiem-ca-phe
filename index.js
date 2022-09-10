@@ -5,13 +5,7 @@ const bot = new aoijs.Bot({
    intents: "all"
  })
 
- const aoidash = require('aoi.js-panel')
-const dash = new aoidash.Dash(bot, {
-port: 8080,
-command: './commands', //your command handler
-username: "cmalucky", //username to login to dashboard
-password: "ngonghia1001" //password to login to dashboard
-})
+ 
 dash.start()
  
 bot.onMemberUpdate()
@@ -44,7 +38,7 @@ bot.interactionCommand({
 {button:Làm mới:1:verify:no:<a:reload:1014121698511044618>}{
 {button:Nhập mã:success:c1:no:<a:zz_pencil:1015628425802825800>}};;;yes]
 `
-})                 
+})                                  
 
 //Command Example (ping)
 bot.command({
