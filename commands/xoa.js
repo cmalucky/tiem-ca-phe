@@ -1,13 +1,12 @@
 module.exports ={
   name: "xoa",
   code: `$deleteIn[1s]
- Successfully deleted $message[1] messages
+ Thành Công Xoá $message[1] Tin Nhắn
  $wait[1s]
  $clear[$message[1];$authorID;$channelID]
- $onlyIf[$message[1]>=0;I can't 0 messages]
- $onlyIf[$message[1]<=100;I can't purge up to 100 messages]
- $onlyIf[$isNumber[$message[1]]==true;Hey you need to specify how many messages you want me to purge with a valid number]
- $onlyPerms[managemessages;You don't have \`MANAGE MESSAGES\` permission]
- $onlyBotPerms[managemessages;I don't have \`MANAGE MESSAGES\` permission]
+ $onlyIf[$message[1]>=0;Không Thể Xoá 0 Tin Nhắn]
+ $onlyIf[$message[1]<=100;Không Thể Xoá Hơn 100 Tin Nhắn]
+ $onlyIf[$isNumber[$message[1]]==true;Hãy Điền Một Con Số Từ 1 Đến 100]
+ 
  $suppressErrors`
 }
