@@ -16,6 +16,7 @@ bot.variables({
  host: "",
  win: "",
  mid: "",
+ setup: "",
 })
 
 //Events
