@@ -14,6 +14,6 @@ $description[**__Sử dụng bot @PartyBeast#0187 __**
 /invite (user) : thêm người đó vào khi phòng đang khoá
 /kick : để đá người đó ra phòng của bạn
 /owner : chuyển chủ phòng cho người khác]
-$footer[1;by cmalucky#7696;$userAvatar]
+$footer[1;by cmalucky#7696;$userAvatar[$authorID]]
 `
 }
