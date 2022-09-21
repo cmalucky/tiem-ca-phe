@@ -89,6 +89,7 @@ bot.joinCommand({ //command
  channel: "1009370137624846386", //channel where it will log
  code: `$dm
 $randomText[Chào <@$authorID> đã đến với: **__Tiệm cà phê__**;**__Tiệm cà phê__** Kính chào quý khách <@$authorID>!]
+Quý khách có thể vào server tại: https://dsc.gg/tiem-ca-phe hoặc https://discord.gg/BRHXBnKWQd
 $color[25C059]
 $author[1;$username#$discriminator[$authorID];$userAvatar]
 $thumbnail[$serverIcon]
