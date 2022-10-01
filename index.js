@@ -33,7 +33,7 @@ bot.interactionCommand({
   prototype: 'button',
   code: `$interactionReply[;{newEmbed:{description:*<a:stttar:1010330887218532433> Nếu không thấy đoạn mã thì có thể nhấn lại nút __Làm mới__*
 <a:stttar:1010330887218532433> Nhấn nút __Nhập mã__ ở bên dưới để xác minh!}{color:928275}
-{image:}};{actionRow:
+{image:https://tiefleta.sirv.com/Polish_20221001_152952867.png?profile=$getUserVar[captchacode]}};{actionRow:
 {button:Làm mới:1:verify:no:<a:reload:1014121698511044618>}{
 {button:Nhập mã:success:c1:no:<a:zz_pencil:1015628425802825800>}};;;yes]
 `
