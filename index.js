@@ -33,7 +33,7 @@ bot.interactionCommand({
   prototype: 'button',
   code: `$interactionReply[;{newEmbed:{description:*<a:stttar:1010330887218532433> Nếu không thấy đoạn mã thì có thể nhấn lại nút __Làm mới__*
 <a:stttar:1010330887218532433> Nhấn nút __Nhập mã__ ở bên dưới để xác minh!}{color:928275}
-{image:https://tiefleta.sirv.com/Polish_20221001_152952867.png?text.0.text=$getUserVar[captchacode]&text.0.position.gravity=south&text.0.position.x=3%25&text.0.position.y=-20%25&text.0.size=70&text.0.color=3CB979&text.0.opacity=59}};{actionRow:
+{image:https://tiefleta.sirv.com/Polish_20221001_152952867.png?text.0.text=$getUserVar[captchacode]&text.0.position.gravity=south&text.0.position.x=3%25&text.0.position.y=-20%25&text.0.size=70&text.0.color=3CB979&text.0.opacity=100}};{actionRow:
 {button:Làm mới:1:verify:no:<a:reload:1014121698511044618>}{
 {button:Nhập mã:success:c1:no:<a:zz_pencil:1015628425802825800>}};;;yes]
 `
